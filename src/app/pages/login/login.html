@@ -1,0 +1,58 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h1>ERP Admin</h1>
+
+    <p>Connexion à votre espace d'administration</p>
+
+    <form (ngSubmit)="login()">
+
+      <div>
+        <label for="email">Email</label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="credentials.email"
+          required
+          autocomplete="email"
+        />
+      </div>
+
+      <div>
+        <label for="password">Mot de passe</label>
+
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="credentials.password"
+          required
+          autocomplete="current-password"
+        />
+      </div>
+
+      @if (errorMessage) {
+        <div class="error">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <button
+        type="submit"
+        [disabled]="loading"
+      >
+        @if (loading) {
+          Connexion...
+        } @else {
+          Se connecter
+        }
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
